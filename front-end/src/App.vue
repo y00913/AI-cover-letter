@@ -1,17 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <div>
+    <h4>test</h4>
+  </div>
+
+  <div>
+    <a> result : {{ chat }}</a>
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from "axios"
 export default {
   name: 'App',
+
+  async mounted(){
+    let result = await axios.get("http://localhost:8080/gpt/v1/chat/test");
+    console.log(result);
+    this.chat = result.data;
+  },
+
+  data(){
+    return {
+      chat: "",
+    }
+  },
   components: {
-    HelloWorld
   }
 }
+
 </script>
 
 <style>
@@ -21,6 +39,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
