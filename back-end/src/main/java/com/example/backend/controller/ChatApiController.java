@@ -20,8 +20,8 @@ public class ChatApiController {
     }
 
     @GetMapping("/msg")
-    public ResponseEntity<?> sendMessage(String message){
-        String gptMessage = chatService.sendMessageToGpt(message);
+    public ResponseEntity<?> sendMessage(String question){
+        String gptMessage = chatService.sendMessageToGpt(question);
 
         return ResponseEntity.ok(gptMessage);
     }
