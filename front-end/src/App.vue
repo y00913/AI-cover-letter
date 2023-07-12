@@ -4,8 +4,8 @@
   </div>
 
   <div>
-    <input v-model="answer" v-on:keyup.enter=mounted(answer)>
-    <button v-on:click=mounted(answer)>완료</button>
+    <input v-model="question" v-on:keyup.enter=mounted(question)>
+    <button v-on:click=mounted(question)>완료</button>
   </div>
 
   <div>
@@ -19,15 +19,15 @@ export default {
   name: 'App',
 
   methods: {
-    async mounted(answer) {
-      let result = await axios.get("http://localhost:8080/gpt/v1/chat/msg?message=" + answer);
+    async mounted(question) {
+      let result = await axios.get("http://localhost:8080/gpt/v1/chat/msg?question=" + question);
       this.chatGpt = result.data;
     },
   },
 
   data() {
     return {
-      answer: "",
+      question: "",
       chatGpt: "",
     }
   },

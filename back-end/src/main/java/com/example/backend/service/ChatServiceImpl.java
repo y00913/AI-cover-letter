@@ -36,7 +36,7 @@ public class ChatServiceImpl implements ChatService {
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model(ModelEnum.MODEL_TURBO.type())
-                .messages(messages.get(ip))
+                .messages(messages.get(ip).stream().toList())
                 .build();
 
         String result = chatCompletionClient
