@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.backend.enums.RoleEnum;
-import java.util.List;
+import org.springframework.util.MultiValueMap;
 
 @Primary
 @Slf4j
@@ -22,19 +22,21 @@ public class ChatServiceImpl implements ChatService {
     private final ChatCompletionClient chatCompletionClient;
     @Value("${gpt-api-key}")
     private String apiKey;
-    private final List<Message> messages;
+    private final MultiValueMap<String, Message> messages;
 
     @Override
-    public String sendMessageToGpt(String question) {
+    public String sendMessageToGpt(String ip, String question) {
 
-        messages.add(Message.builder()
+        log.info("ip : " + ip);
+
+        messages.add(ip, Message.builder()
                 .role(RoleEnum.ROLE_USER.type())
                 .content(question)
                 .build());
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model(ModelEnum.MODEL_TURBO.type())
-                .messages(messages)
+                .messages(messages.get(ip))
                 .build();
 
         String result = chatCompletionClient
@@ -46,7 +48,7 @@ public class ChatServiceImpl implements ChatService {
                 .getMessage()
                 .getContent();
 
-        messages.add(Message.builder()
+        messages.add(ip, Message.builder()
                 .role(RoleEnum.ROLE_GPT.type())
                 .content(result)
                 .build());
