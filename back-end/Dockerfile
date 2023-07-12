@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-alpine
 EXPOSE 8082
 ARG JAR_FILE=./build/libs/back-end-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
