@@ -22,7 +22,7 @@ export default {
 
   methods: {
     async mounted(question) {
-      let result = await axios.get("http://192.168.35.50:8000/gpt/v1/chat/msg?question=" + question);
+      let result = await axios.get("http://218.237.234.37:8000/gpt/v1/chat/msg?question=" + question);
       this.chatGpt = result.data;
     },
   },
