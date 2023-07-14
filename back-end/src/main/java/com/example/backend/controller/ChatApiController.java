@@ -24,11 +24,7 @@ public class ChatApiController {
 
     @GetMapping("/msg")
     public ResponseEntity<?> sendMessage(String question){
-        HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        String ip = req.getHeader("X-FORWARDED-FOR");
-        ip = ip == null ? req.getRemoteAddr() : ip;
-
-        String gptMessage = chatService.sendMessageToGpt(ip, question);
+        String gptMessage = chatService.sendMessageToGpt(question);
 
         return ResponseEntity.ok(gptMessage);
     }
