@@ -1,8 +1,8 @@
 package com.example.backend.service;
 
 import com.example.backend.client.ChatCompletionClient;
-import com.example.backend.domain.ChatRequest;
-import com.example.backend.domain.Message;
+import com.example.backend.dto.ChatRequest;
+import com.example.backend.dto.Message;
 import com.example.backend.enums.ModelEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.backend.enums.RoleEnum;
-import org.springframework.util.MultiValueMap;
 
 import java.util.Collections;
 
