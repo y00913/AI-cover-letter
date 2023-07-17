@@ -1,17 +1,31 @@
 <template>
   <div>
-    <h4>test</h4>
+    <h2>ai 자기소개서</h2>
   </div>
 
-  <div>
-    <input v-model="question" v-on:keyup.enter=mounted(question)>
-    <button v-on:click=mounted(question)>완료</button>
-  </div>
+  <form v-on:submit.prevent="ask">
+    <div>
+      <textarea v-model="question" placeholder="question"></textarea>
+    </div>
+
+    <div>
+      <textarea v-model="information" placeholder="information"></textarea>
+    </div>
+
+    <div v-if="!isLoading">
+      <button v-on:keyup.enter="submit">완료</button>
+    </div>
+  </form>
 
   <br />
+  <br />
 
-  <div>
-    <a> result : {{ chatGpt }}</a>
+  <div id="loading" style="margin-top: 25px" v-if="isLoading">
+    <img src="./assets/loading.gif">
+  </div>
+
+  <div v-if="!isLoading">
+    <a> {{ chatGpt }} </a>
   </div>
 </template>
 
@@ -21,16 +35,25 @@ export default {
   name: 'App',
 
   methods: {
-    async mounted(question) {
-      let result = await axios.get("http://218.237.234.37:8000/gpt/v1/chat/msg?question=" + question);
+    async ask() {
+      this.isLoading = true;
+      let result = await axios.post("http://218.237.234.37:8000/gpt/v1/chat/msg", {
+        question: this.question,
+        information: this.information,
+      });
       this.chatGpt = result.data;
+      this.isLoading = false;
+
+      console.log(this.chatGpt);
     },
   },
 
   data() {
     return {
       question: "",
+      information: "",
       chatGpt: "",
+      isLoading: false,
     }
   },
   components: {
@@ -40,6 +63,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,4 +71,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.result {
+
+}
+
 </style>
