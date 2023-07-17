@@ -4,6 +4,7 @@ import com.example.backend.client.ChatCompletionClient;
 import com.example.backend.dto.ChatRequest;
 import com.example.backend.dto.Message;
 import com.example.backend.enums.ModelEnum;
+import com.example.backend.vo.QuestionVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,11 +26,12 @@ public class ChatServiceImpl implements ChatService {
     private String apiKey;
 
     @Override
-    public String sendMessageToGpt(String question) {
+    public String sendMessageToGpt(QuestionVo questionVo) {
+        String response = "질문에 해당하는 자기소개서를 내 정보를 포함해서 만들어줘. 질문은 \"" + questionVo.getQuestion() + "\"이고, 내 정보는 \"" + questionVo.getInformation() + "\"이야.";
 
         Message message =Message.builder()
                 .role(RoleEnum.ROLE_USER.type())
-                .content(question)
+                .content(response)
                 .build();
 
         ChatRequest chatRequest = ChatRequest.builder()
