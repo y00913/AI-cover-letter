@@ -1,9 +1,10 @@
 package com.example.backend.service;
 
 import com.example.backend.client.ChatCompletionClient;
-import com.example.backend.domain.ChatRequest;
-import com.example.backend.domain.Message;
+import com.example.backend.dto.ChatRequest;
+import com.example.backend.dto.Message;
 import com.example.backend.enums.ModelEnum;
+import com.example.backend.vo.QuestionVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +12,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.backend.enums.RoleEnum;
-import org.springframework.util.MultiValueMap;
+
+import java.util.Collections;
 
 @Primary
 @Slf4j
@@ -22,21 +24,19 @@ public class ChatServiceImpl implements ChatService {
     private final ChatCompletionClient chatCompletionClient;
     @Value("${gpt-api-key}")
     private String apiKey;
-    private final MultiValueMap<String, Message> messages;
 
     @Override
-    public String sendMessageToGpt(String ip, String question) {
+    public String sendMessageToGpt(QuestionVo questionVo) {
+        String response = "질문에 해당하는 자기소개서를 내 정보를 포함해서 만들어줘. 질문은 \"" + questionVo.getQuestion() + "\"이고, 내 정보는 \"" + questionVo.getInformation() + "\"이야.";
 
-        log.info("ip : " + ip);
-
-        messages.add(ip, Message.builder()
+        Message message =Message.builder()
                 .role(RoleEnum.ROLE_USER.type())
-                .content(question)
-                .build());
+                .content(response)
+                .build();
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model(ModelEnum.MODEL_TURBO.type())
-                .messages(messages.get(ip).stream().toList())
+                .messages(Collections.singletonList(message))
                 .build();
 
         String result = chatCompletionClient
@@ -47,11 +47,6 @@ public class ChatServiceImpl implements ChatService {
                 .orElseThrow()
                 .getMessage()
                 .getContent();
-
-        messages.add(ip, Message.builder()
-                .role(RoleEnum.ROLE_GPT.type())
-                .content(result)
-                .build());
 
         return result;
 

@@ -1,4 +1,4 @@
-package com.example.backend.domain;
+package com.example.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

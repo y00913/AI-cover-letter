@@ -1,7 +1,9 @@
 package com.example.backend.service;
 
+import com.example.backend.vo.QuestionVo;
+
 public interface ChatService {
 
-    String sendMessageToGpt(String ip, String message);
+    String sendMessageToGpt(QuestionVo questionVo);
 
 }
