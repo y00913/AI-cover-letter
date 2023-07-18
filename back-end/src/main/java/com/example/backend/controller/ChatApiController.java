@@ -1,6 +1,5 @@
 package com.example.backend.controller;
 
-import com.example.backend.dto.Response;
 import com.example.backend.service.ChatService;
 import com.example.backend.vo.QuestionVo;
 import lombok.RequiredArgsConstructor;
