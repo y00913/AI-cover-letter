@@ -1,32 +1,43 @@
 <template>
-  <div>
-    <h2>ai 자기소개서</h2>
-  </div>
+  <body>
+    <div id="head">
+      <h2>AI 자기소개서</h2>
+    </div>
 
-  <form v-on:submit.prevent="ask">
-    <div>
-      <textarea v-model="question" placeholder="question"></textarea>
+    <form v-on:submit.prevent="ask" id="ask">
+      <div>
+        <div>
+          <textarea v-model="question" placeholder="question" id="question"></textarea>
+        </div>
+
+        <div>
+          <textarea v-model="information" placeholder="information" id="information"></textarea>
+        </div>
+      </div>
+
+      <div v-if="!isLoading">
+        <button v-on:keyup.enter="submit" id="button">완료</button>
+      </div>
+    </form>
+
+    <div id="result">
+
+      <div id="loading" v-if="isLoading">
+        <img src="./assets/loading.gif">
+      </div>
+
+      <div v-if="!isLoading">
+        <a> {{ chatGpt }} </a>
+      </div>
+
     </div>
 
     <div>
-      <textarea v-model="information" placeholder="information"></textarea>
+      <p style="font-weight: bold; margin-top: 60px">
+        made by <a v-bind:href="`https://velog.io/@y00913`" target="_blank" style="text-decoration: none;">y00913</a>
+      </p>
     </div>
-
-    <div v-if="!isLoading">
-      <button v-on:keyup.enter="submit">완료</button>
-    </div>
-  </form>
-
-  <br />
-  <br />
-
-  <div id="loading" style="margin-top: 25px" v-if="isLoading">
-    <img src="./assets/loading.gif">
-  </div>
-
-  <div v-if="!isLoading">
-    <a> {{ chatGpt }} </a>
-  </div>
+  </body>
 </template>
 
 <script>
@@ -63,17 +74,52 @@ export default {
 </script>
 
 <style>
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: #2c3e50;
+  min-height: 70vh;
+  margin: auto;
 }
 
-.result {
-
+#head {
+  text-decoration: none;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
+#result {
+  border-radius: 15px;
+  padding: 50px;
+  border: 2px solid #b3b0b0;
+  margin: 30px;
+  width: 1000px;
+  height: 300px;
+  align-items: center;
+}
+
+#question {
+  width: 300px;
+  height: 50px;
+}
+
+#information {
+  width: 300px;
+  height: 50px;
+}
+
+#button {
+  margin-top: 15px;
+}
+
+#ask {
+  width: 300px;
+  height: 180px;
+}
+
+#loading {
+  margin-top: 100px;
+}
 </style>
