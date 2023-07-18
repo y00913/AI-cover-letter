@@ -23,7 +23,7 @@ public class ChatApiController {
     public ResponseEntity<?> sendMessage(@RequestBody QuestionVo questionVo){
         String gptMessage = chatService.sendMessageToGpt(questionVo);
 
-        return ResponseEntity.ok(Response.builder().response(gptMessage).build());
+        return ResponseEntity.ok(gptMessage);
     }
 
 }
