@@ -20,13 +20,13 @@
       </div>
     </form>
 
-    <div id="result">
+    <div id="result-box">
 
       <div id="loading" v-if="isLoading">
         <img src="./assets/loading.gif">
       </div>
 
-      <div v-if="!isLoading">
+      <div id="result" v-if="!isLoading">
         <a> {{ chatGpt }} </a>
       </div>
 
@@ -48,14 +48,12 @@ export default {
   methods: {
     async ask() {
       this.isLoading = true;
-      let result = await axios.post("http://218.237.234.37:8000/gpt/v1/chat/msg", {
+      const result = await axios.post("http://218.237.234.37:8000/gpt/v1/chat/msg", {
         question: this.question,
         information: this.information,
       });
       this.chatGpt = result.data;
       this.isLoading = false;
-
-      console.log(this.chatGpt);
     },
   },
 
@@ -90,14 +88,17 @@ body {
   margin-bottom: 10px;
 }
 
-#result {
+#result-box {
   border-radius: 15px;
-  padding: 50px;
+  padding: 10px;
   border: 2px solid #b3b0b0;
   margin: 30px;
   width: 1000px;
-  height: 300px;
+  height: auto;
+  min-height: 300px;
   align-items: center;
+  white-space : pre-wrap;
+  word-wrap : break-word;
 }
 
 #question {
@@ -121,5 +122,9 @@ body {
 
 #loading {
   margin-top: 100px;
+}
+
+#result {
+  margin: 20px;
 }
 </style>
