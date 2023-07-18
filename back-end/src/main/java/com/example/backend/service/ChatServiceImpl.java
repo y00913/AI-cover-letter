@@ -27,11 +27,11 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public String sendMessageToGpt(QuestionVo questionVo) {
-        String response = "질문에 해당하는 자기소개서를 내 정보를 포함해서 만들어줘. 질문은 \"" + questionVo.getQuestion() + "\"이고, 내 정보는 \"" + questionVo.getInformation() + "\"이야.";
+        String request = "질문에 해당하는 자기소개서를 내 정보를 포함해서 만들어줘. 질문은 \"" + questionVo.getQuestion() + "\"이고, 내 정보는 \"" + questionVo.getInformation() + "\"이야.";
 
         Message message =Message.builder()
                 .role(RoleEnum.ROLE_USER.type())
-                .content(response)
+                .content(request)
                 .build();
 
         ChatRequest chatRequest = ChatRequest.builder()

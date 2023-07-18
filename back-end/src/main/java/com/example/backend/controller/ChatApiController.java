@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.dto.Response;
 import com.example.backend.service.ChatService;
 import com.example.backend.vo.QuestionVo;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class ChatApiController {
     public ResponseEntity<?> sendMessage(@RequestBody QuestionVo questionVo){
         String gptMessage = chatService.sendMessageToGpt(questionVo);
 
-        return ResponseEntity.ok(gptMessage);
+        return ResponseEntity.ok(Response.builder().response(gptMessage).build());
     }
 
 }
