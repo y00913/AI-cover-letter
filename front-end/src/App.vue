@@ -7,17 +7,24 @@
     <form v-on:submit.prevent="ask" id="ask">
       <div>
         <div>
-          <textarea v-model="question" placeholder="question" id="question"></textarea>
+          <textarea v-model="question" placeholder="질문 ex) 성격을 서술하시오." id="question"></textarea>
         </div>
 
         <div>
-          <textarea v-model="information" placeholder="information" id="information"></textarea>
+          <textarea v-model="information" placeholder="정보 ex) 차분함. 솔직함. 리더십이 있음." id="information"></textarea>
         </div>
       </div>
 
-      <div v-if="!isLoading">
-        <button v-on:keyup.enter="submit" id="button">완료</button>
+      <div id="button">
+        <div v-if="!isLoading">
+          <button v-on:keyup.enter="submit">완료</button>
+        </div>
+
+        <div v-if="isLoading">
+          <a style="color:#8b8a8a;">40초 정도 소요됩니다.</a>
+        </div>
       </div>
+
     </form>
 
     <div id="result-box">
@@ -97,8 +104,8 @@ body {
   height: auto;
   min-height: 300px;
   align-items: center;
-  white-space : pre-wrap;
-  word-wrap : break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 #question {
