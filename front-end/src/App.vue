@@ -78,7 +78,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 70vh;
+  min-height: 90vh;
   margin: auto;
 }
 
