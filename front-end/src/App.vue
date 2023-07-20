@@ -55,7 +55,7 @@ export default {
   methods: {
     async ask() {
       this.isLoading = true;
-      const result = await axios.post("http://218.237.234.37:8000/gpt/v1/chat/msg", {
+      const result = await axios.post("http://aicl.kro.kr:8000/gpt/v1/chat/msg", {
         question: this.question,
         information: this.information,
       });
