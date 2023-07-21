@@ -100,7 +100,7 @@ body {
   padding: 10px;
   border: 2px solid #b3b0b0;
   margin: 30px;
-  width: 100vh;
+  width: 45vw;
   height: auto;
   min-height: 300px;
   align-items: center;
