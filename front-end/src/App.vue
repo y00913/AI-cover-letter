@@ -36,7 +36,7 @@
       <div id="result" v-if="!isLoading">
         <a> {{ chatGpt }} </a>
       </div>
-
+      <br>
     </div>
 
     <div>
@@ -100,7 +100,7 @@ body {
   padding: 10px;
   border: 2px solid #b3b0b0;
   margin: 30px;
-  width: 1000px;
+  width: 100vh;
   height: auto;
   min-height: 300px;
   align-items: center;
