@@ -48,8 +48,9 @@ public class ChatServiceImpl implements ChatService {
                 .getMessage()
                 .getContent();
 
-        log.info("request : " + request);
-        log.info("response : " + result);
+        log.info("question : " + questionVo.getQuestion());
+        log.info("information : " + questionVo.getInformation())
+        log.info("result : " + result);
 
         return result;
 
