@@ -49,7 +49,7 @@ public class ChatServiceImpl implements ChatService {
                 .getContent();
 
         log.info("question : " + questionVo.getQuestion());
-        log.info("information : " + questionVo.getInformation())
+        log.info("information : " + questionVo.getInformation());
         log.info("result : " + result);
 
         return result;
