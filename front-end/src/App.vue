@@ -34,6 +34,12 @@
       </div>
 
       <div id="result" v-if="!isLoading">
+        <a v-if="chatGpt == ''" style="color:#8b8a8a;"> 
+          <br><br>
+          <p>자기소개서를 'ChatGPT' 가 작성해드립니다.</p>
+          <P>질문 칸과 정보 칸을 입력하고 완료를 눌러주세요.</P>
+          <p>결과가 이 곳에 출력됩니다. </p>
+        </a>
         <a> {{ chatGpt }} </a>
       </div>
       <br>
@@ -91,7 +97,7 @@ body {
 
 #head {
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1.2em;
   margin-bottom: 10px;
 }
 
