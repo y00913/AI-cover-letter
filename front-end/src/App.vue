@@ -36,7 +36,7 @@
 
       <div id="result" v-if="!isLoading">
         <a v-if="chatGpt == ''" style="color:#8b8a8a;">
-          <br><br>
+          <br><br><br>
           <p>자기소개서를 'ChatGPT' 가 작성해드립니다.</p>
           <P>질문 칸과 정보 칸을 입력하고 완료를 눌러주세요.</P>
           <p>결과가 이 곳에 출력됩니다. </p>
@@ -98,6 +98,7 @@ body {
 }
 
 textarea {
+  border-radius: 0.4em;
   resize: none;
 }
 
@@ -108,7 +109,7 @@ textarea {
 }
 
 #result-box {
-  border-radius: 15px;
+  border-radius: 2em;
   padding: 10px;
   border: 2px solid #b3b0b0;
   margin: 30px;
@@ -145,7 +146,7 @@ textarea {
   background: #F3F3F3;
   border: 2px #DADADA solid;
   padding: 8px 20px;
-  border-radius: 10px;
+  border-radius: 1em;
   font-weight: bold;
   font-size: 10pt;
   outline: none;
