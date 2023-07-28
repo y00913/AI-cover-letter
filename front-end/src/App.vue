@@ -11,13 +11,14 @@
         </div>
 
         <div>
-          <textarea v-model="information" placeholder="정보를 입력해주세요. &#10;ex) 차분함. 솔직함. 리더십이 있음." id="information"></textarea>
+          <textarea v-model="information" placeholder="정보를 입력해주세요. &#10;ex) 차분함. 솔직함. 리더십이 있음."
+            id="information"></textarea>
         </div>
       </div>
 
-      <div id="button">
+      <div style="margin-top: 15px;">
         <div v-if="!isLoading">
-          <button v-on:keyup.enter="submit">완료</button>
+          <button v-on:keyup.enter="submit" id="button">완료</button>
         </div>
 
         <div v-if="isLoading">
@@ -34,7 +35,7 @@
       </div>
 
       <div id="result" v-if="!isLoading">
-        <a v-if="chatGpt == ''" style="color:#8b8a8a;"> 
+        <a v-if="chatGpt == ''" style="color:#8b8a8a;">
           <br><br>
           <p>자기소개서를 'ChatGPT' 가 작성해드립니다.</p>
           <P>질문 칸과 정보 칸을 입력하고 완료를 눌러주세요.</P>
@@ -93,11 +94,16 @@ body {
   text-align: center;
   min-height: 90vh;
   margin: auto;
+  font-family: 'mabi';
+}
+
+textarea {
+  resize: none;
 }
 
 #head {
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
@@ -119,17 +125,46 @@ body {
   height: 50px;
 }
 
+#question::placeholder {
+  font-family: 'mabi';
+  font-size: 1.1em;
+}
+
 #information {
   width: 300px;
   height: 50px;
 }
 
+#information::placeholder {
+  font-family: 'mabi';
+  font-size: 1.1em;
+}
+
 #button {
-  margin-top: 15px;
+  color: #444444;
+  background: #F3F3F3;
+  border: 2px #DADADA solid;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 10pt;
+  outline: none;
+  font-family: 'mabi';
+}
+
+#button:hover {
+  border: 1px #C6C6C6 solid;
+  box-shadow: 1px 1px 1px #EAEAEA;
+  color: #333333;
+  background: #F7F7F7;
+}
+
+#button:active {
+  box-shadow: inset 1px 1px 1px #DFDFDF;
 }
 
 #ask {
-  width: 300px;
+  width: 1000px;
   height: 180px;
 }
 
@@ -139,5 +174,10 @@ body {
 
 #result {
   margin: 20px;
+}
+
+@font-face {
+  font-family: "mabi";
+  src: url('./assets/Mabinogi_Classic_TTF.ttf') format('truetype')
 }
 </style>
