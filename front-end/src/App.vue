@@ -151,6 +151,7 @@ textarea {
   font-size: 10pt;
   outline: none;
   font-family: 'mabi';
+  cursor: pointer;
 }
 
 #button:hover {
