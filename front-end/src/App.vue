@@ -155,7 +155,7 @@ textarea {
 }
 
 #button:hover {
-  border: 1px #C6C6C6 solid;
+  border: 2px #C6C6C6 solid;
   box-shadow: 1px 1px 1px #EAEAEA;
   color: #333333;
   background: #F7F7F7;
