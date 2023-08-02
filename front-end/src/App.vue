@@ -38,7 +38,7 @@
         <a v-if="chatGpt == ''" style="color:#8b8a8a;">
           <br><br><br>
           <p>자기소개서를 'ChatGPT' 가 작성해드립니다.</p>
-          <P>질문 칸과 정보 칸을 입력하고 완료를 눌러주세요.</P>
+          <p>질문 칸과 정보 칸을 입력하고 완료를 눌러주세요.</p>
           <p>결과가 이 곳에 출력됩니다. </p>
         </a>
         <a> {{ chatGpt }} </a>
@@ -47,7 +47,7 @@
     </div>
 
     <div>
-      <p style="font-weight: bold; margin-top: 60px">
+      <p style="font-weight: bold; margin-top: 60px;">
         made by <a v-bind:href="`https://velog.io/@y00913`" target="_blank" style="text-decoration: none;">y00913</a>
       </p>
     </div>
