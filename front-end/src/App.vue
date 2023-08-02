@@ -7,11 +7,11 @@
     <form v-on:submit.prevent="ask" id="ask">
       <div>
         <div>
-          <textarea v-model="question" placeholder="질문을 입력해주세요. &#10;ex) 성격을 서술하시오." id="question"></textarea>
+          <textarea v-model="question" placeholder="질문을 입력해주세요. &#10;&#10;ex) 성격을 서술하시오." id="question"></textarea>
         </div>
 
         <div>
-          <textarea v-model="information" placeholder="정보를 입력해주세요. &#10;ex) 차분함. 솔직함. 리더십이 있음."
+          <textarea v-model="information" placeholder="정보를 입력해주세요. &#10;&#10;ex) 차분함. 솔직함. 리더십이 있음."
             id="information"></textarea>
         </div>
       </div>
@@ -104,7 +104,7 @@ textarea {
 
 #head {
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.7em;
   margin-bottom: 10px;
 }
 
@@ -122,8 +122,8 @@ textarea {
 }
 
 #question {
-  width: 300px;
-  height: 50px;
+  width: 350px;
+  height: 80px;
 }
 
 #question::placeholder {
@@ -132,8 +132,8 @@ textarea {
 }
 
 #information {
-  width: 300px;
-  height: 50px;
+  width: 350px;
+  height: 80px;
 }
 
 #information::placeholder {
@@ -168,6 +168,7 @@ textarea {
 #ask {
   width: 1000px;
   height: 180px;
+  margin-bottom: 3em;
 }
 
 #loading {
