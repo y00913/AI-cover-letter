@@ -10,6 +10,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.time.LocalDate;
 
+import com.example.backend.utils.ClientUtils;
+
 @Component
 @RequiredArgsConstructor
 public class SingleVisitInterceptor implements HandlerInterceptor {
@@ -18,7 +20,7 @@ public class SingleVisitInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String ip = getIp(request);
+        String ip = ClientUtils.getIp(request);
         String userAgent = request.getHeader("User-Agent");
         String today = LocalDate.now().toString();
         String key = ip + "_" + today;
@@ -32,32 +34,6 @@ public class SingleVisitInterceptor implements HandlerInterceptor {
         }
 
         return true;
-    }
-
-    public String getIp(HttpServletRequest request){
-        String ip = request.getHeader("X-Forwarded-For");
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
-        }
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_CLIENT_IP");
-        }
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-        }
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-
-        return ip;
     }
 
 }
