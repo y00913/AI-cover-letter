@@ -61,7 +61,7 @@ export default {
 
   methods: {
     async ask() {
-      const response = await axios.get('http://ipwho.is');
+      const response = await axios.get('https://ipwho.is');
       this.ip = response.data.ip;
 
       this.isLoading = true;
