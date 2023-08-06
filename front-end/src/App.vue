@@ -61,11 +61,20 @@ export default {
 
   methods: {
     async ask() {
+      const response = await axios.get('http://ipwho.is');
+      this.ip = response.data.ip;
+
       this.isLoading = true;
+
       const result = await axios.post("https://aicl.kro.kr:8000/gpt/v1/chat/msg", {
         question: this.question,
         information: this.information,
+      }, {
+        headers: {
+          "x-forwarded-for": this.ip,
+        }
       });
+
       this.chatGpt = result.data;
       this.isLoading = false;
     },
@@ -77,6 +86,7 @@ export default {
       information: "",
       chatGpt: "",
       isLoading: false,
+      ip: "",
     }
   },
   components: {
