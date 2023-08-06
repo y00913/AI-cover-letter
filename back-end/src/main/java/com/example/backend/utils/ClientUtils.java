@@ -35,9 +35,7 @@ public class ClientUtils {
             ip = request.getRemoteAddr();
         }
 
-        request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         Enumeration<String> headerNames = request.getHeaderNames();
-
         if (headerNames != null) {
             while (headerNames.hasMoreElements()) {
                 String name = (String) headerNames.nextElement();
