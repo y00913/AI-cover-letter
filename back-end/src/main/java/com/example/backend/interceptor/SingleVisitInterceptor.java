@@ -23,9 +23,11 @@ public class SingleVisitInterceptor implements HandlerInterceptor {
         String ip = ClientUtils.getIp(request);
         String userAgent = request.getHeader("User-Agent");
         String today = LocalDate.now().toString();
-        String key = ip + "_" + today;
 
-        System.out.println("key  :  " + key);
+        if(ip.indexOf(",") >= 0) {
+            ip = ip.substring(0,ip.indexOf(","));
+        }
+        String key = ip + "_" + today;
 
         ValueOperations valueOperations = redisTemplate.opsForValue();
 

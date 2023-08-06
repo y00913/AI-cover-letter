@@ -35,11 +35,6 @@ public class ClientUtils {
             ip = request.getRemoteAddr();
         }
 
-        Enumeration<String> headerNames = request.getHeaderNames();
-        headerNames.asIterator().forEachRemaining(headerName -> {
-            System.out.println(headerName + " :: " + request.getHeader(headerName));
-        });
-
         return ip;
     }
 
