@@ -36,13 +36,9 @@ public class ClientUtils {
         }
 
         Enumeration<String> headerNames = request.getHeaderNames();
-        if (headerNames != null) {
-            while (headerNames.hasMoreElements()) {
-                String name = (String) headerNames.nextElement();
-                String value = request.getHeader(name);
-                System.out.println("Header ::: " + name + " : " + value);
-            }
-        }
+        headerNames.asIterator().forEachRemaining(headerName -> {
+            System.out.println(headerName + " :: " + request.getHeader(headerName));
+        });
 
         return ip;
     }
