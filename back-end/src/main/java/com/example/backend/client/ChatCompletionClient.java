@@ -1,7 +1,7 @@
 package com.example.backend.client;
 
-import com.example.backend.domain.ChatRequest;
-import com.example.backend.domain.ChatResponse;
+import com.example.backend.dto.ChatRequest;
+import com.example.backend.dto.ChatResponse;
 import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

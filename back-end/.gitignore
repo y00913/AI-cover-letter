@@ -1,4 +1,6 @@
 application-gpt.properties
+application-redis.properties
+application-mysql.properties
 HELP.md
 .gradle
 build/
