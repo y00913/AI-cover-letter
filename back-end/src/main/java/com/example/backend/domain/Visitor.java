@@ -23,6 +23,6 @@ public class Visitor {
     private Long Id;
     private String ip;
     private String userAgent;
-    private LocalDate create_at;
+    private LocalDate createAt;
 
 }
