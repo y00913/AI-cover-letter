@@ -29,6 +29,11 @@ public class SingleVisitInterceptor implements HandlerInterceptor {
         if(ip.indexOf(",") >= 0) {
             ip = ip.substring(0,ip.indexOf(","));
         }
+
+        if(ip.equals("172.19.0.1")) {
+            return true;
+        }
+
         String key = ip + "_" + today;
         log.info("key : " + key);
 
