@@ -21,6 +21,6 @@ https://aicl.kro.kr
 
 
 # 화면 구성
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f19abe5-dbbd-4751-a31b-0f124533a719/Untitled.png)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5890dfc5-a1aa-4823-b727-e648ac2a18ee/Untitled.png)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a029c501-44d6-45b6-b254-08d4911af086/Untitled.png)
+![aicl1](https://github.com/y00913/AI-cover-letter/assets/42912205/25f73d76-3bd0-44b9-aba8-fbc279967f00)
+![aicl2](https://github.com/y00913/AI-cover-letter/assets/42912205/bc413817-2f78-4d32-8a55-15b2a39808d8)
+![aicl3](https://github.com/y00913/AI-cover-letter/assets/42912205/bfd920be-8f88-406f-839e-e90096ac43cf)
