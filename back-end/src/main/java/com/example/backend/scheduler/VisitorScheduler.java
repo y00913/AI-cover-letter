@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -17,17 +16,15 @@ public class VisitorScheduler {
     private final RedisTemplate<String, String> redisTemplate;
     private final VisitorRepository visitorRepository;
 
-    @Scheduled(initialDelay = 3000000, fixedDelay = 3000000)
+    @Scheduled(initialDelay = 10000, fixedDelay = 10000)
     public void updateVisitor(){
-        Set<String> keys = redisTemplate.keys("*_*");
-
-        for(String key : keys) {
+        redisTemplate.keys("*_*").forEach(key -> {
             String[] parts = key.split("_");
             String ip = parts[0];
             LocalDate createAt = LocalDate.parse(parts[1]);
             String userAgent = redisTemplate.opsForValue().get(key);
 
-            if (!visitorRepository.existsByIpAndCreateAt(ip, createAt)) {
+            if(!visitorRepository.existsByIpAndCreateAt(ip,createAt)) {
                 Visitor visitor = Visitor.builder()
                         .ip(ip)
                         .userAgent(userAgent)
@@ -37,7 +34,7 @@ public class VisitorScheduler {
             }
 
             redisTemplate.delete(key);
-        };
+        });
     }
 
 }
