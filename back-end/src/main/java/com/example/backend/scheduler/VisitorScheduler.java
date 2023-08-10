@@ -16,7 +16,7 @@ public class VisitorScheduler {
     private final RedisTemplate<String, String> redisTemplate;
     private final VisitorRepository visitorRepository;
 
-    @Scheduled(initialDelay = 10000, fixedDelay = 10000)
+    @Scheduled(initialDelay = 3000000, fixedDelay = 3000000)
     public void updateVisitor(){
         redisTemplate.keys("*_*").forEach(key -> {
             String[] parts = key.split("_");
