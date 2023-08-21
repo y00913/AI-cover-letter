@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+
 @Primary
 @Slf4j
 @Service
@@ -15,6 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class VisitorServiceImpl implements VisitorService{
 
     private final VisitorRepository visitorRepository;
+
+    @Override
+    public boolean existsByIpAndCreateAt(String ip, LocalDate createAt) {
+        return visitorRepository.existsByIpAndCreateAt(ip,createAt);
+    }
 
     @Override
     @Transactional
