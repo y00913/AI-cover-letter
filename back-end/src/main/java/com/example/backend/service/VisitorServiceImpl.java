@@ -19,6 +19,7 @@ public class VisitorServiceImpl implements VisitorService{
     private final VisitorRepository visitorRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public boolean existsByIpAndCreateAt(String ip, LocalDate createAt) {
         return visitorRepository.existsByIpAndCreateAt(ip,createAt);
     }
