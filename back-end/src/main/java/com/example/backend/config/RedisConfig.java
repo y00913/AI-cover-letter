@@ -22,7 +22,7 @@ public class RedisConfig {
     private int port;
     @Value("${spring.data.redis.lettuce.pool.min-idle}")
     private int minIdle;
-    @Value(("${spring.data.redis.lettuce.pool.time-between-eviction-runs}"))
+    @Value("${spring.data.redis.lettuce.pool.time-between-eviction-runs}")
     private int timeBetweenEvictionRuns;
 
     @Bean

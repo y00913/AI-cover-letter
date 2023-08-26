@@ -3,12 +3,14 @@ package com.example.backend.scheduler;
 import com.example.backend.domain.Visitor;
 import com.example.backend.service.VisitorService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class VisitorScheduler {
@@ -18,6 +20,8 @@ public class VisitorScheduler {
 
     @Scheduled(initialDelay = 3000000, fixedDelay = 3000000)
     public void updateVisitor(){
+        log.info("update visitor");
+
         redisTemplate.keys("*_*").forEach(key -> {
             String[] parts = key.split("_");
             String ip = parts[0];
