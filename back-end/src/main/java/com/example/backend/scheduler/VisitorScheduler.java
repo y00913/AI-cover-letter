@@ -20,7 +20,6 @@ public class VisitorScheduler {
 
     @Scheduled(initialDelay = 3000000, fixedDelay = 3000000)
     public void updateVisitor(){
-        log.info("update visitor");
 
         redisTemplate.keys("*_*").forEach(key -> {
             String[] parts = key.split("_");
@@ -39,6 +38,7 @@ public class VisitorScheduler {
 
             redisTemplate.delete(key);
         });
+        
     }
 
 }
