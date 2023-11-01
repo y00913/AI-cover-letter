@@ -48,7 +48,7 @@
 
     <div>
       <p style="font-weight: bold; margin-top: 60px;">
-        made by <a v-bind:href="`https://velog.io/@y00913`" target="_blank" style="text-decoration: none;">y00913</a>
+        made by <a v-bind:href="`https://github.com/y00913`" target="_blank" style="text-decoration: none;">y00913</a>
       </p>
     </div>
   </body>
