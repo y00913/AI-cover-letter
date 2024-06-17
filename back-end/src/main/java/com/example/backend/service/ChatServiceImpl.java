@@ -35,7 +35,7 @@ public class ChatServiceImpl implements ChatService {
                 .build();
 
         ChatRequest chatRequest = ChatRequest.builder()
-                .model(ModelEnum.MODEL_TURBO.type())
+                .model(ModelEnum.MODEL_4o.type())
                 .messages(Collections.singletonList(message))
                 .build();
 
