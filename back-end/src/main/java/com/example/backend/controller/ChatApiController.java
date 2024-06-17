@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/gpt/v1/chat")
+@RequestMapping("/api/gpt/v1/chat")
 @RequiredArgsConstructor
 public class ChatApiController {
 
