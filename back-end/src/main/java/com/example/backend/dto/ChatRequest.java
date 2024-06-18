@@ -15,6 +15,8 @@ import java.util.List;
 public class ChatRequest implements Serializable {
 
     private String model;
+    private String provider;
+    private boolean stream = true;
     private List<Message> messages;
 
 }
