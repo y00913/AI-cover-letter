@@ -84,7 +84,7 @@ public class ChatServiceImpl implements ChatService {
 
                 Message.builder()
                         .role(RoleEnum.ROLE_USER.type())
-                        .content("You.com 스마트 어시스턴트에 대한 내용은 제외하고 소제목을 나누고 500자 이상 1000자 이내로 작성해. 마무리 멘트도 하지마.")
+                        .content("You.com 스마트 어시스턴트에 대한 내용은 제외하고 소제목을 나누고 500자 이상 1000자 이내로 작성해.")
                         .build(),
 
                 Message.builder()
@@ -94,7 +94,7 @@ public class ChatServiceImpl implements ChatService {
 
                 Message.builder()
                         .role(RoleEnum.ROLE_USER.type())
-                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해.")
+                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해. 나한테 묻는 말은 하지마.")
                         .build()
         );
 
