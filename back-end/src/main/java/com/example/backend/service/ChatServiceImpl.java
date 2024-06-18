@@ -84,7 +84,17 @@ public class ChatServiceImpl implements ChatService {
 
                 Message.builder()
                         .role(RoleEnum.ROLE_USER.type())
-                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해. You.com 스마트 어시스턴트에 대한 내용은 제외하고 소제목을 나누고 500자 이상 1000자 이내로 작성해. ")
+                        .content("You.com 스마트 어시스턴트에 대한 내용은 제외하고 소제목을 나누고 500자 이상 1000자 이내로 작성해. 마무리 멘트도 하지마.")
+                        .build(),
+
+                Message.builder()
+                        .role(RoleEnum.ROLE_GPT.type())
+                        .content("네, 알겠습니다.")
+                        .build(),
+
+                Message.builder()
+                        .role(RoleEnum.ROLE_USER.type())
+                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해.")
                         .build()
         );
 
