@@ -34,7 +34,7 @@ public class ChatServiceImpl implements ChatService {
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model("gpt-3.5-turbo")
-                .provider("You")
+                .provider("Bing")
                 .messages(messageList)
                 .build();
 
