@@ -67,6 +67,7 @@ export default {
       this.isLoading = true;
 
       const result = await axios.post("https://aicl.kro.kr/api/gpt/v1/chat/msg", {
+      // const result = await axios.post("http://localhost/api/gpt/v1/chat/msg", {
         question: this.question,
         information: this.information,
       }, {
