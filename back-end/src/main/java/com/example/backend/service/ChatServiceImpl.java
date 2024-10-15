@@ -33,8 +33,8 @@ public class ChatServiceImpl implements ChatService {
         List<Message> messageList = getMessageList(questionVo);
 
         ChatRequest chatRequest = ChatRequest.builder()
-                .model(ModelEnum.MODEL_TURBO.type())
-                .provider("You")
+                .model("Balanced")
+                .provider("Bing")
                 .messages(messageList)
                 .build();
 
