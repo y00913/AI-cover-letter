@@ -5,4 +5,11 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 # CMD ["npm","run","serve"]
-CMD ["npm", "run", "build"]
+RUN yarn run build
+
+# # production stage
+FROM nginx:stable-alpine as production-stage
+COPY  ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
