@@ -1,4 +1,4 @@
-FROM node:18.16
+FROM node:18.16 as build-stage
 EXPOSE 3000
 WORKDIR /app
 COPY package*.json ./
@@ -11,5 +11,5 @@ RUN yarn run build
 FROM nginx:stable-alpine as production-stage
 COPY  ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=production-stage /app/dist /usr/share/nginx/html
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
