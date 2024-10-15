@@ -34,7 +34,7 @@ public class ChatServiceImpl implements ChatService {
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model(ModelEnum.MODEL_TURBO.type())
-                .provider("you")
+                .provider("You")
                 .messages(messageList)
                 .build();
 
