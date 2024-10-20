@@ -3,7 +3,6 @@ package com.example.backend.service;
 import com.example.backend.client.ChatCompletionClient;
 import com.example.backend.dto.ChatRequest;
 import com.example.backend.dto.Message;
-import com.example.backend.enums.ModelEnum;
 import com.example.backend.vo.QuestionVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.backend.enums.RoleEnum;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Primary
