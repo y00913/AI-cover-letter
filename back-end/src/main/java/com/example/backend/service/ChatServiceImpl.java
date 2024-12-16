@@ -31,7 +31,6 @@ public class ChatServiceImpl implements ChatService {
 
         ChatRequest chatRequest = ChatRequest.builder()
                 .model("gpt-4o-mini")
-                .provider("Pizzagpt")
                 .messages(messageList)
                 .build();
 
@@ -71,7 +70,7 @@ public class ChatServiceImpl implements ChatService {
 
                 Message.builder()
                         .role(RoleEnum.ROLE_USER.type())
-                        .content("내 정보는 " + questionVo.getInformation() + "이야.")
+                        .content("내 정보는 " + questionVo.getInformation() + "이야. 최소 300자 이상으로 작성해.")
                         .build(),
 
                 Message.builder()
@@ -81,17 +80,7 @@ public class ChatServiceImpl implements ChatService {
 
                 Message.builder()
                         .role(RoleEnum.ROLE_USER.type())
-                        .content("You.com 스마트 어시스턴트에 대한 내용은 제외하고 소제목을 나누고 500자 이상 1000자 이내로 작성해.")
-                        .build(),
-
-                Message.builder()
-                        .role(RoleEnum.ROLE_GPT.type())
-                        .content("네, 알겠습니다.")
-                        .build(),
-
-                Message.builder()
-                        .role(RoleEnum.ROLE_USER.type())
-                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해. 나한테 묻는 말은 하지마.")
+                        .content("위 내용을 토대로 사람이 쓴 것 같은 자기소개서를 작성해. 내 말에 대답하지말고 바로 작성해.")
                         .build()
         );
 

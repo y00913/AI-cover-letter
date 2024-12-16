@@ -5,17 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatRequest implements Serializable {
+public class ChatRequest {
 
     private String model;
-    private String provider;
     private boolean stream = true;
     private List<Message> messages;
 
